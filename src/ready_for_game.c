@@ -6,7 +6,7 @@
 /*   By: youngcho <youngcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 19:03:33 by youngcho          #+#    #+#             */
-/*   Updated: 2022/07/29 19:49:20 by youngcho         ###   ########.fr       */
+/*   Updated: 2022/07/29 19:54:06 by youngcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	put_img(t_game_info *game, t_component component, int x, int y)
 		x * component.width, y * component.height);
 }
 
-void	put_img_cnt_collectible(t_game_info *game, int x, int y)
+void	put_img_and_cnt_collectible(t_game_info *game, int x, int y)
 {
 	put_img(game->mlx, game->win, game->collectible, x, y);
 	game->map_info.nbr_collectible++;
@@ -49,35 +49,35 @@ void	set_map_info_and_draw_map(t_game_info *game)
 			else if (map[y][x] == '0')
 				put_img(game->mlx, game->win, game->empty, x, y);
 			else if (map[y][x] == 'C')
-				put_img_cnt_collectible(game, x, y);
+				put_img_and_cnt_collectible(game, x, y);
 			else if (game->map_info.map_table[y][x] == 'E')
 				put_img(game->mlx, game->win, game->exit, x, y);
 			else if (game->map_info.map_table[y][x] == 'P')
-				put_img_set_player_coordinate(game, x, y);
+				put_img_and_set_player_coordinate(game, x, y);
 			x++;
 		}
 		y++;
 	}
 }
 
-void	init_to_game(t_game_info *game_info)
+void	init_to_game(t_game_info *game)
 {
-	game_info->mlx = mlx_init();
-	game_info->win = mlx_new_window(game_info->mlx, 640, 640, "test");
-	game_info->empty.img = mlx_xpm_file_to_image(\
-		game_info->mlx, "./asset/img/empty.xpm", \
-		&(game_info->empty.width), &(game_info->empty.height));
-	game_info->exit.img = mlx_xpm_file_to_image(\
-		game_info->mlx, "./asset/img/exit.xpm", \
-		&(game_info->exit.width), &(game_info->exit.height));
-	game_info->collectible.img = mlx_xpm_file_to_image(\
-		game_info->mlx, "./asset/img/item.xpm", \
-		&(game_info->collectible.width), &(game_info->collectible.height));
-	game_info->player.img = mlx_xpm_file_to_image(\
-		game_info->mlx, "./asset/img/player.xpm", \
-		&(game_info->player.width), &(game_info->player.height));
-	game_info->wall.img = mlx_xpm_file_to_image(\
-		game_info->mlx, "./asset/img/wall.xpm", \
-		&(game_info->wall.width), &(game_info->wall.height));
-	set_map_info_and_draw_map(game_info);
+	game->mlx = mlx_init();
+	game->win = mlx_new_window(game->mlx, 640, 640, "test");
+	game->empty.img = mlx_xpm_file_to_image(\
+		game->mlx, "./asset/img/empty.xpm", \
+		&(game->empty.width), &(game->empty.height));
+	game->exit.img = mlx_xpm_file_to_image(\
+		game->mlx, "./asset/img/exit.xpm", \
+		&(game->exit.width), &(game->exit.height));
+	game->collectible.img = mlx_xpm_file_to_image(\
+		game->mlx, "./asset/img/item.xpm", \
+		&(game->collectible.width), &(game->collectible.height));
+	game->player.img = mlx_xpm_file_to_image(\
+		game->mlx, "./asset/img/player.xpm", \
+		&(game->player.width), &(game->player.height));
+	game->wall.img = mlx_xpm_file_to_image(\
+		game->mlx, "./asset/img/wall.xpm", \
+		&(game->wall.width), &(game->wall.height));
+	set_map_info_and_draw_map(game);
 }
