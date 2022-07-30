@@ -6,7 +6,7 @@
 /*   By: youngcho <youngcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 11:42:20 by youngcho          #+#    #+#             */
-/*   Updated: 2022/07/29 19:28:09 by youngcho         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:31:53 by youngcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 int main(int argc, char *argv[])
 {	
-	t_game_info	*game_info;
+	t_game_info	*game;
 	
-	game_info = (t_game_info *)malloc(sizeof(t_game_info));
-	// read_map
-	game_info->map_info.map_table = read_map_file(argv[argc - 1]);
-	if (game_info->map_info.map_table == NULL)
+	game = (t_game_info *)malloc(sizeof(t_game_info));
+	game->map_info.map_table = read_map_file(argv[argc - 1]);
+	if (game->map_info.map_table == NULL)
 		return (0);
-	
 	// valid check
 
 
-	init_to_game(game_info);
-	mlx_hook(game_info->win, ON_KEYDOWN, 0, &keydown_callback, game_info);
-	mlx_loop(game_info->mlx);
+	start_game(game);
+	mlx_hook(game->win, ON_KEYDOWN, 0, &on_keydown_callback, game);
+	mlx_hook(game->win, ON_DESTROY, 0, &on_destroy_callback, game);
+	mlx_loop(game->mlx);
 	return (0);
 }

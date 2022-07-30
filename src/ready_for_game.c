@@ -6,7 +6,7 @@
 /*   By: youngcho <youngcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 19:03:33 by youngcho          #+#    #+#             */
-/*   Updated: 2022/07/30 12:03:00 by youngcho         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:30:43 by youngcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	put_img_and_cnt_collectible(t_game_info *game, int x, int y)
 void	put_img_and_set_player_coordinate(t_game_info *game, int x, int y)
 {
 	put_img(game, game->player, x, y);
-	game->map_info.player_coord.x = x;
-	game->map_info.player_coord.y = y;
+	game->map_info.player_coord.curr_x = x;
+	game->map_info.player_coord.curr_y = y;
 }
 
 void	set_map_info_and_draw_map(t_game_info *game)
@@ -60,7 +60,7 @@ void	set_map_info_and_draw_map(t_game_info *game)
 	}
 }
 
-void	init_to_game(t_game_info *game)
+void	start_game(t_game_info *game)
 {
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, 640, 640, "test");

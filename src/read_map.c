@@ -6,7 +6,7 @@
 /*   By: youngcho <youngcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 18:53:21 by youngcho          #+#    #+#             */
-/*   Updated: 2022/07/29 18:55:57 by youngcho         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:32:48 by youngcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char	*strjoin_free_old_str(char const *old_str, char const *buf)
 	free((void *)old_str);
 	return (new_str);
 }
+#include "../libft/libft.h"
 
 char	**read_map_file(char *file_path)
 {
@@ -59,5 +60,8 @@ char	**read_map_file(char *file_path)
 	}
 	map = ft_split(str, '\n');
 	free(str);
+	// row, col 저장해야함
+	game->map_info.map_size.row = 
+	game->map_info.map_size.col = ft_strlen(game->map_info.map_table[0]);
 	return (map);
 }

@@ -6,7 +6,7 @@
 #    By: youngcho <youngcho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/25 17:43:20 by youngcho          #+#    #+#              #
-#    Updated: 2022/07/29 19:03:58 by youngcho         ###   ########.fr        #
+#    Updated: 2022/07/30 15:28:39 by youngcho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,9 @@ INC_FLAGS = -I $(LIBFT_DIR)/inc/ -I $(LIBMLX_DIR) -I ./include/
 SRCS_NAME = main.c \
 			read_map.c \
 			callback.c \
-			ready_for_game.c
+			callback_utils.c \
+			ready_for_game.c \
+			terminate.c 
 
 SRCS = $(addprefix $(SRC_DIR), $(SRCS_NAME))
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS_NAME:%.c=%.o))

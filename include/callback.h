@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   callback.c                                         :+:      :+:    :+:   */
+/*   callback.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youngcho <youngcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/29 18:56:24 by youngcho          #+#    #+#             */
-/*   Updated: 2022/07/30 15:34:38 by youngcho         ###   ########.fr       */
+/*   Created: 2022/07/30 15:23:54 by youngcho          #+#    #+#             */
+/*   Updated: 2022/07/30 15:38:33 by youngcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "callback.h"
+#ifndef CALLBACK_H
+# define CALLBACK_H
 
-int	on_keydown_callback(int keycode, void *param)
-{
-	if (keycode == KEY_D || keycode == KEY_A || \
-		keycode == KEY_S || keycode == KEY_W)
-		command_player_to_move(keycode, param);
-	else if (keycode == KEY_ESC)
-		terminate_command((t_game_info *)param);
-	return (0);
-}
+# include "so_long.h"
 
-int	on_destroy_callback(void *param)
-{
-	terminate_command((t_game_info *)param);
-	return (0);
-}
+void	predict_next_coordinate(int keycode, t_coordinate *player_coord);
+int		is_movable(char **map, t_coordinate *coord, int nbr_collectible);
+void	move_and_draw_player(t_game_info *game, char **map,
+			t_coordinate *coord);
+void	command_player_to_move(int keycode, void *param);
+
+#endif
