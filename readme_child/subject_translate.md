@@ -118,6 +118,6 @@
 
 ## 6. Examples
 
-![그림1: 매우 나쁜 그래픽 디자인 취향을 가진 예시](subject%20translate%206ef0a4d73dc546e6a0349ca9de7d3587/Untitled.png)
+![그림1: 매우 나쁜 그래픽 디자인 취향을 가진 예시](./assets/Untitled.png)
 
 그림1: 매우 나쁜 그래픽 디자인 취향을 가진 예시

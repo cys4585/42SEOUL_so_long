@@ -1,5 +1,5 @@
 # 1. so_long
 
-[subject translate](./child/subject_translate.md)
+[subject translate](./readme_child/subject_translate.md)
 
-[MiniLibX](./child/minilibx.md)
+[MiniLibX](./readme_child/minilibx.md)
