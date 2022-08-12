@@ -6,7 +6,7 @@
 /*   By: youngcho <youngcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:50:51 by jayoon            #+#    #+#             */
-/*   Updated: 2022/08/05 13:51:25 by youngcho         ###   ########.fr       */
+/*   Updated: 2022/08/12 13:30:52 by youngcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	check_file_name(int argc, char *file)
 		print_error("one argument");
 	str = ft_strrchr(file, '.');
 	check_error(LIBFT, "ft_strrchr", (ssize_t)str);
-	if (ft_strncmp(str, ".ber", 4))
+	if (ft_strlen(str) != 4 || ft_strncmp(str, ".ber", 4))
 		print_error(".ber extension");
 }
