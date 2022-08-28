@@ -4,4 +4,4 @@
 
 [subject requirements](./readme_child/subject_translate.md)
 
-[MiniLibX](./readme_child/minilibx.md)
+[MiniLibX study](./readme_child/minilibx.md)
